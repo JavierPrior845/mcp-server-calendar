@@ -3,9 +3,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 import dotenv from 'dotenv';
 
-dotenv.config();
+const PROJECT_ROOT = path.resolve(__dirname, '..');
+dotenv.config({ path: path.join(PROJECT_ROOT, '.env') });
 
-const TOKEN_PATH = path.join(process.cwd(), 'tokens.json');
+const TOKEN_PATH = path.join(PROJECT_ROOT, 'tokens.json');
 
 function getAuthClient() {
   const clientId = process.env.CLIENT_ID;
