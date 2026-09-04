@@ -5,10 +5,10 @@ import * as path from 'path';
 import { parse } from 'url';
 import dotenv from 'dotenv';
 
-dotenv.config();
-
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
-const TOKEN_PATH = path.join(process.cwd(), 'tokens.json');
+const PROJECT_ROOT = path.resolve(__dirname, '..');
+dotenv.config({ path: path.join(PROJECT_ROOT, '.env') });
+const TOKEN_PATH = path.join(PROJECT_ROOT, 'tokens.json');
 const REDIRECT_PORT = 3000;
 const REDIRECT_URI = `http://127.0.0.1:${REDIRECT_PORT}`;
 

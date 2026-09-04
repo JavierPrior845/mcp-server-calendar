@@ -33,9 +33,10 @@ export const listEventsTool: McpTool = {
       return {
         content: [{ type: "text", text: formatted }],
       };
-    } catch (error) {
+    } catch (error: any) {
+      const detail = error?.response?.data ? JSON.stringify(error.response.data) : (error?.stack || error?.message);
       return {
-        content: [{ type: "text", text: `Error al listar eventos: ${(error as Error).message}` }],
+        content: [{ type: "text", text: `Error al listar eventos: ${error?.message} | Detalle: ${detail}` }],
         isError: true,
       };
     }

@@ -43,10 +43,8 @@ export interface WorkloadAnalyticsOptions {
 }
 
 export class CalendarService {
-  private calendar: calendar_v3.Calendar;
-
-  constructor() {
-    this.calendar = getCalendarClient();
+  private get calendar(): calendar_v3.Calendar {
+    return getCalendarClient();
   }
 
   async listEvents(options: ListEventsOptions): Promise<calendar_v3.Schema$Event[]> {

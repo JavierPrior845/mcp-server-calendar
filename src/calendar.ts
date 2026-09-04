@@ -11,7 +11,7 @@ const TOKEN_PATH = path.join(PROJECT_ROOT, 'tokens.json');
 function getAuthClient() {
   const clientId = process.env.CLIENT_ID;
   const clientSecret = process.env.CLIENT_SECRET;
-  const redirectUri = process.env.REDIRECT_URI || 'http://localhost:3000';
+  const redirectUri = process.env.REDIRECT_URI || 'http://127.0.0.1:3000';
 
   if (!clientId || !clientSecret) {
     throw new Error('Faltan CLIENT_ID o CLIENT_SECRET en el .env');
